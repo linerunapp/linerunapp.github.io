@@ -1,0 +1,54 @@
+/* Line Run: the app's own palette (AppTheme.swift, goldWarm) and its own two faces,
+   served from this site rather than from Google Fonts, so a visitor's browser
+   never contacts Google just to read the privacy policy. */
+@font-face { font-family: "Playfair Display"; src: url("fonts/PlayfairDisplay-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Playfair Display"; src: url("fonts/PlayfairDisplay-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter_18pt-Regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter_18pt-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("fonts/Inter_18pt-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --bg: #F7F5F0;      /* background */
+  --text: #222222;    /* text */
+  --muted: #6E6C66;   /* secondaryText */
+  --rule: #D8D5CC;    /* divider */
+  --gold: #B39020;    /* accent, used only for rules and underlines, never for text */
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #262422; --text: #EAE8E3; --muted: #9C9A95; --rule: #4A4742; --gold: #B39020; }
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 400 1.0625rem/1.65 "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 40rem; margin: 0 auto; padding: 0 1.5rem; }
+
+header.site { padding: 2rem 0 0; }
+.wordmark { font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; color: var(--text); text-decoration: none; }
+
+h1 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400;
+     font-size: clamp(2.2rem, 8vw, 3rem); line-height: 1.1; margin: 2.75rem 0 1rem; }
+.meta { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
+        padding-bottom: 0.6rem; border-bottom: 1px solid var(--gold); display: inline-block; margin: 0 0 2.5rem; }
+h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; font-size: 1.6rem; line-height: 1.25; margin: 3rem 0 0.9rem; }
+h3 { font-weight: 700; font-size: 1.0625rem; margin: 2.2rem 0 0.5rem; }
+p { margin: 0 0 1rem; }
+strong { font-weight: 700; }
+hr { border: 0; height: 1px; background: var(--rule); margin: 3rem 0; }
+ul { padding-left: 1.2rem; margin: 0 0 1rem; }
+li { margin: 0.5rem 0; }
+li::marker { color: var(--gold); }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--gold);
+    text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+a:hover { text-decoration-thickness: 2px; }
+
+.landing { padding: 4rem 0 2rem; }
+.hero { font-size: clamp(3rem, 14vw, 4.5rem); margin: 0 0 0.75rem; }
+.subtitle { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 1.35rem; color: var(--muted); margin: 0 0 2rem; }
+
+footer.site { margin: 4rem 0 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
+footer.site nav { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin-bottom: 0.75rem; }
+footer.site p { margin: 0; }
