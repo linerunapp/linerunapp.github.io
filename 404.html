@@ -4,13 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
+<script>(function(){var r=document.documentElement;r.className+=' js';try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})();</script>
 <title>Page not found · Line Run</title>
 <meta name="description" content="Page not found.">
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="wrap">
-<header class="site"><a class="wordmark" href="/">Line Run</a></header>
+<header class="site"><a class="wordmark" href="/">Line Run</a><div class="theme" role="group" aria-label="Appearance"><button type="button" data-set="auto">Auto</button><button type="button" data-set="light">Light</button><button type="button" data-set="dark">Dark</button></div></header>
 <main>
 <section class="landing">
 <h1 class="hero">Not here</h1>
@@ -22,5 +23,10 @@
   <p>© 2026 Kelly Wong</p>
 </footer>
 </div>
+<script>(function(){var r=document.documentElement,b=document.querySelectorAll('.theme button');
+function show(){var t=r.getAttribute('data-theme')||'auto';for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===t)}
+for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){var t=this.getAttribute('data-set');
+if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
+try{if(t==='auto')localStorage.removeItem('theme');else localStorage.setItem('theme',t)}catch(e){}show()});show()})();</script>
 </body>
 </html>

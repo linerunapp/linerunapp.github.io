@@ -7,16 +7,19 @@
 @font-face { font-family: "Inter"; src: url("fonts/Inter_18pt-Italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
 @font-face { font-family: "Inter"; src: url("fonts/Inter_18pt-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 
+/* Light unless the device asks for dark, and the visitor's own choice beats both. */
 :root {
+  color-scheme: light;
   --bg: #F7F5F0;      /* background */
-  --text: #222222;    /* text */
+  --text: #3A3833;    /* warm dark grey, never black (owner, 2026-09-13; the app's former interfaceText) */
   --muted: #6E6C66;   /* secondaryText */
   --rule: #D8D5CC;    /* divider */
   --gold: #B39020;    /* accent, used only for rules and underlines, never for text */
 }
 @media (prefers-color-scheme: dark) {
-  :root { --bg: #262422; --text: #EAE8E3; --muted: #9C9A95; --rule: #4A4742; --gold: #B39020; }
+  :root:not([data-theme="light"]) { color-scheme: dark; --bg: #262422; --text: #D6D3CC; --muted: #9C9A95; --rule: #4A4742; --gold: #B39020; }
 }
+:root[data-theme="dark"] { color-scheme: dark; --bg: #262422; --text: #D6D3CC; --muted: #9C9A95; --rule: #4A4742; --gold: #B39020; }
 
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -26,8 +29,17 @@ body {
 }
 .wrap { max-width: 40rem; margin: 0 auto; padding: 0 1.5rem; }
 
-header.site { padding: 2rem 0 0; }
+header.site { padding: 2rem 0 0; display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem 1rem; flex-wrap: wrap; }
 .wordmark { font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; color: var(--text); text-decoration: none; }
+
+.theme { display: none; gap: 0.9rem; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.js .theme { display: flex; }
+.theme button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--muted); background: none;
+                border: 0; border-bottom: 1px solid transparent; padding: 0.35rem 0 0.2rem; margin: 0; cursor: pointer; }
+.theme button[aria-pressed="true"] { color: var(--text); border-bottom-color: var(--gold); }
+.theme button:hover { color: var(--text); }
+.theme button:focus-visible { outline: 1px solid var(--gold); outline-offset: 3px; }
+footer.site .theme { margin-top: 1rem; }
 
 h1 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 400;
      font-size: clamp(2.2rem, 8vw, 3rem); line-height: 1.1; margin: 2.75rem 0 1rem; }
@@ -47,8 +59,18 @@ a:hover { text-decoration-thickness: 2px; }
 
 .landing { padding: 4rem 0 2rem; }
 .hero { font-size: clamp(3rem, 14vw, 4.5rem); margin: 0 0 0.75rem; }
-.subtitle { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 1.35rem; color: var(--muted); margin: 0 0 2rem; }
+
+/* The coming-soon home page, centred: the name, a gold line, one real screen. */
+.soon { text-align: center; padding: 3.5rem 0 0; }
+.soon .hero { margin: 0; }
+.soon .rule { width: 3.5rem; height: 1px; background: var(--gold); margin: 1.4rem auto 1.2rem; }
+.soon-line { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.shot { margin: 2.75rem auto 0; max-width: 17rem; }
+.shot img { display: block; width: 100%; height: auto; border-radius: 2.2rem; border: 1px solid var(--rule);
+            box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.16); }
 
 footer.site { margin: 4rem 0 3rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); font-size: 0.9rem; color: var(--muted); }
 footer.site nav { display: flex; flex-wrap: wrap; gap: 0.4rem 0.75rem; margin-bottom: 0.75rem; }
 footer.site p { margin: 0; }
+.home footer.site { text-align: center; }
+.home footer.site nav { justify-content: center; }
