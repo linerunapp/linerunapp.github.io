@@ -3,16 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<script>(function(){var r=document.documentElement;r.className+=' js';try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})();</script>
+<meta name="color-scheme" content="light">
 <title>Privacy Policy · Line Run</title>
 <meta name="description" content="What Line Run sends, where it goes, and what never leaves your phone.">
+<link rel="icon" href="../favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="../img/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../img/icon-180.png">
 <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="wrap">
-<header class="site"><a class="wordmark" href="../">Line Run</a><div class="theme" role="group" aria-label="Appearance"><button type="button" data-set="auto">Auto</button><button type="button" data-set="light">Light</button><button type="button" data-set="dark">Dark</button></div></header>
+<header class="site"><div class="page">
+<div class="titleblock">
+<p class="name"><a href="../">Line Run</a></p>
+<p class="sub">A memorization app for actors</p>
+</div>
+</div></header>
 <main>
+<div class="page doc">
 <h1>Privacy Policy</h1>
 <p class="meta">Last updated September 13, 2026</p>
 <p>Line Run is made by one person, Kelly Wong, working in Canada. There is no company behind it, no marketing department, and no server of ours anywhere. This page is written to be read, not to be survived.</p>
@@ -141,16 +149,13 @@
 <h2 id="14-getting-in-touch">14. Getting in touch</h2>
 <p><strong><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a></strong></p>
 <p>One person reads that, and it is me, the same person who wrote the app.</p>
-</main>
-<footer class="site">
-  <nav><a href="../privacy/">Privacy Policy</a><span aria-hidden="true">·</span><a href="../terms/">Terms</a><span aria-hidden="true">·</span><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a></nav>
-  <p>© 2026 Kelly Wong</p>
-</footer>
 </div>
-<script>(function(){var r=document.documentElement,b=document.querySelectorAll('.theme button');
-function show(){var t=r.getAttribute('data-theme')||'auto';for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===t)}
-for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){var t=this.getAttribute('data-set');
-if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
-try{if(t==='auto')localStorage.removeItem('theme');else localStorage.setItem('theme',t)}catch(e){}show()});show()})();</script>
+</main>
+<footer class="site"><div class="page">
+  <nav><a href="../terms/">Terms</a><span aria-hidden="true">·</span><a href="../privacy/">Privacy Policy</a><span aria-hidden="true">·</span><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a></nav>
+  <p>© <span id="yr">2026</span> Kelly Wong</p>
+  <script>try{document.getElementById('yr').textContent=new Date().getFullYear()}catch(e){}</script>
+</div></footer>
+</div>
 </body>
 </html>

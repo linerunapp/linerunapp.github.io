@@ -3,32 +3,164 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
-<script>(function(){var r=document.documentElement;r.className+=' js';try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')r.setAttribute('data-theme',t)}catch(e){}})();</script>
+<meta name="color-scheme" content="light">
 <title>Line Run</title>
 <meta name="description" content="An app for learning lines.">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" type="image/png" href="img/icon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/icon-180.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="home">
 <div class="wrap">
-<header class="site"><a class="wordmark" href="">Line Run</a><div class="theme" role="group" aria-label="Appearance"><button type="button" data-set="auto">Auto</button><button type="button" data-set="light">Light</button><button type="button" data-set="dark">Dark</button></div></header>
+<header class="site"><div class="page">
+<div class="titleblock">
+<p class="name">Line Run</p>
+<p class="sub">A memorization app for actors</p>
+</div>
+</div></header>
 <main>
-<section class="soon">
-<h1 class="hero">Line Run</h1>
-<div class="rule" aria-hidden="true"></div>
-<p class="soon-line">Coming soon for iPhone</p>
-<figure class="shot"><img src="img/rehearse.jpg" alt="Line Run&#39;s Rehearse screen, listening for your line in a scene from Chekhov&#39;s The Seagull." width="640" height="1390"></figure>
+<section class="hero" aria-labelledby="h-hero">
+<div class="page">
+<h1 id="h-hero">It listens.<br>So you can too.</h1>
+<p class="lead">Line Run gives you your cue and waits for your response, so you can stop reciting and start acting.</p>
+<p class="soon-line soon-store">Coming soon to the App Store</p>
+<figure class="film" id="filmfig">
+<div class="phone"><span class="island" aria-hidden="true"></span>
+<video id="film" poster="img/preview-poster.jpg" width="640" height="1386"
+ autoplay muted loop playsinline preload="metadata"
+ aria-label="A screen recording of Line Run: the app speaks the other characters&#39; lines, listens while you say yours, and marks your line as it hears it.">
+<source src="video/preview.mp4" type="video/mp4">
+</video>
+<button type="button" class="soundbtn" id="film-sound" data-muted="1" aria-label="Turn sound on"><svg class="spk" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path class="spk-body" d="M4 9.5h3.2L12 5.4v13.2L7.2 14.5H4z"/><path class="spk-wave" d="M15.6 9.2a4 4 0 0 1 0 5.6"/><path class="spk-wave" d="M18.1 6.7a7.5 7.5 0 0 1 0 10.6"/><path class="spk-cut" d="M3.4 3.4L20.6 20.6"/><path class="spk-slash" d="M3.4 3.4L20.6 20.6"/></svg></button>
+</div>
+</figure>
+<script>(function(){var f=document.getElementById('filmfig'),
+v=document.getElementById('film'),b=document.getElementById('film-sound');
+if(!f||!v||!b)return;
+var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
+if(m&&m.matches){v.autoplay=false;v.loop=false;v.controls=true;
+try{v.pause();v.currentTime=0}catch(e){}return;}
+f.className+=' has-sound';
+b.addEventListener('click',function(){v.muted=!v.muted;
+if(!v.muted){var p=v.play();if(p&&p.catch)p.catch(function(){})}
+b.setAttribute('data-muted',v.muted?'1':'0');
+b.setAttribute('aria-label',v.muted?'Turn sound on':'Turn sound off')});
+var on=false;
+v.autoplay=false;try{v.pause();v.currentTime=0}catch(e){}
+function half(){var r=v.getBoundingClientRect(),h=window.innerHeight||0;
+if(!r.height)return false;var seen=Math.min(r.bottom,h)-Math.max(r.top,0);
+return seen>0&&seen>=r.height*0.5}
+function sync(){if(half()){if(!on){on=true;try{v.currentTime=0}catch(e){}
+var p=v.play();if(p&&p.catch)p.catch(function(){})}}
+else if(on){on=false;try{v.pause();v.currentTime=0}catch(e){}}}
+if(window.IntersectionObserver)new IntersectionObserver(sync,{threshold:[0,0.5,1]}).observe(v);
+addEventListener('scroll',sync,{passive:true});
+addEventListener('resize',sync,{passive:true});
+sync();})();</script>
+</div>
+</section>
+<section class="beat" aria-labelledby="h-heart">
+<div class="page">
+<h2 id="h-heart">Getting off book is the hardest part of the job.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<p>It usually happens in the living room: your script in one hand, the other covering your lines.</p>
+<p>That&#8217;s how I memorized for years, and it never came easily. I would read the other lines and recite mine, never really listening.</p>
+<p>The words didn&#8217;t stick because I wasn&#8217;t thinking the thoughts.</p>
+</div>
+</section>
+<section class="beat stage" aria-labelledby="h-film">
+<div class="page">
+<h2 id="h-film">Hear it. Don&#8217;t read it.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<p>Line Run speaks the line before yours, then listens for your response. You think the thoughts and connect the dots, so the words stick.</p>
+<p>Every character has a voice, so you&#8217;re hearing a scene, not reading one.</p>
+<figure class="bigshot"><div class="phone"><span class="island" aria-hidden="true"></span>
+<img src="img/rehearse-light.jpg" alt="Line Run&#39;s Rehearse screen, with the actor&#39;s line marked in gold while the app listens for it." width="720" height="1564" loading="lazy" decoding="async">
+</div><figcaption>Listen and respond like you would in the room.</figcaption></figure>
+</div>
+</section>
+<section class="beat" aria-labelledby="h-record">
+<div class="page">
+<h2 id="h-record">Record it, or import it.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<p>Record the other characters yourself, once. It&#8217;s the more lifelike way: your own pacing, your own pauses, each part pitched up or down so they sound like different people.</p>
+<p>Or let <span class="pname">Line Run Pro</span> do the work. Import your script and every other part gets a natural-sounding voice, made right on your&#160;phone.</p>
+<p>One is more lifelike, the other is less effort. Either way, it sounds like a cast running the scene with you.</p>
+<div class="shots">
+<figure class="shot"><div class="phone"><span class="island" aria-hidden="true"></span>
+<img src="img/record-light.jpg" alt="Line Run&#39;s Prepare screen, recording the other characters&#39; lines one at a time in your own voice." width="720" height="1564" loading="lazy" decoding="async">
+</div><figcaption>Recording the other parts yourself.</figcaption></figure>
+<figure class="shot"><div class="phone"><span class="island" aria-hidden="true"></span>
+<img src="img/voices-light.jpg" alt="Line Run making the voices for an imported scene, counting its way through the lines." width="720" height="1564" loading="lazy" decoding="async">
+</div><figcaption>Voices made automatically, after an import.</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="beat stage maker" aria-labelledby="h-maker">
+<div class="page">
+<h2 id="h-maker">Built for actors, by an actor.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<div class="note">
+<p>Hi, I&#8217;m <a href="https://kellywo.ng/">Kelly</a>. I&#8217;ve been in this industry for over 25 years, and memorizing is still a challenge.</p>
+<p>I built Line Run so that we can get off book sooner, with confidence, and rehearsal can be about the acting.</p>
+</div>
+<p class="canada">Proudly made in Canada.</p>
+</div>
+</section>
+<section class="beat" aria-labelledby="h-private">
+<div class="page">
+<h2 id="h-private">Private by design.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<p>There is no account and nothing to sign up for. There are no ads and your data will never be sold to anyone. Your recordings stay on your phone, and the generated voices are made there too, not in a data centre.</p>
+<p class="more"><a href="privacy/">Read the privacy policy.</a></p>
+</div>
+</section>
+<section class="beat stage" aria-labelledby="h-free">
+<div class="page">
+<h2 id="h-free">Free forever.<br>More when you need it.</h2>
+<div class="hrule" aria-hidden="true"></div>
+<div class="bill">
+<div class="col">
+<h3 class="colhead">Free</h3>
+<p class="price">Free</p>
+<p class="pricesub">A tool for auditions and less demanding roles.</p>
+<ul>
+<li><b aria-hidden="true">&#10003;</b> One script, up to three scenes</li>
+<li><b aria-hidden="true">&#10003;</b> Record the other parts in your own voice</li>
+<li><b aria-hidden="true">&#10003;</b> Four ways to rehearse</li>
+<li><b aria-hidden="true">&#10003;</b> Say &#8220;Line, please&#8221; when you go blank</li>
+<li><b aria-hidden="true">&#10003;</b> Loop tricky sections</li>
+</ul>
+</div>
+<div class="divider" aria-hidden="true"></div>
+<div class="col pro">
+<h3 class="colhead">Line Run Pro</h3>
+<p class="price">$39.99/year</p>
+<p class="pricesub">With a free trial to start. Cancel anytime.</p>
+<ul>
+<li><b aria-hidden="true">&#10003;</b> Everything in Free</li>
+<li><b aria-hidden="true">&#10003;</b> Unlimited scripts and scenes</li>
+<li><b aria-hidden="true">&#10003;</b> Import a script, including scanned pages and sides</li>
+<li><b aria-hidden="true">&#10003;</b> A voice for every other character, made on your phone</li>
+</ul>
+</div>
+<p class="billnote">I know how tough it is out there for actors to make ends meet, so I&#8217;ve priced this low to cover costs, not to profit.</p>
+</div>
+</div>
+</section>
+<section class="close">
+<div class="page">
+<p>Questions or ideas? Write to me at <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a>.</p>
+<p class="soon-line soon-store">Coming soon to the App Store</p>
+</div>
 </section>
 </main>
-<footer class="site">
-  <nav><a href="privacy/">Privacy Policy</a><span aria-hidden="true">·</span><a href="terms/">Terms</a><span aria-hidden="true">·</span><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a></nav>
-  <p>© 2026 Kelly Wong</p>
-</footer>
+<footer class="site"><div class="page">
+  <nav><a href="terms/">Terms</a><span aria-hidden="true">·</span><a href="privacy/">Privacy Policy</a><span aria-hidden="true">·</span><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;">&#104;&#101;&#108;&#108;&#111;&#64;&#108;&#105;&#110;&#101;&#114;&#117;&#110;&#97;&#112;&#112;&#46;&#99;&#111;&#109;</a></nav>
+  <p>© <span id="yr">2026</span> Kelly Wong</p>
+  <script>try{document.getElementById('yr').textContent=new Date().getFullYear()}catch(e){}</script>
+</div></footer>
 </div>
-<script>(function(){var r=document.documentElement,b=document.querySelectorAll('.theme button');
-function show(){var t=r.getAttribute('data-theme')||'auto';for(var i=0;i<b.length;i++)b[i].setAttribute('aria-pressed',b[i].getAttribute('data-set')===t)}
-for(var i=0;i<b.length;i++)b[i].addEventListener('click',function(){var t=this.getAttribute('data-set');
-if(t==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',t);
-try{if(t==='auto')localStorage.removeItem('theme');else localStorage.setItem('theme',t)}catch(e){}show()});show()})();</script>
 </body>
 </html>
