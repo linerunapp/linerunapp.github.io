@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://linerunapp.com/sitemap.xml
