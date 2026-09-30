@@ -363,10 +363,11 @@ footer.site p { margin: 0; max-width: none; }
 .checks { border-top: 1px solid var(--rule); padding-top: 1.2rem; margin-top: 2rem; }
 .check { display: flex; gap: 0.7rem; align-items: baseline; margin: 0 0 0.6rem; }
 .check input { accent-color: #3A3833; width: 1rem; height: 1rem; flex: none; transform: translateY(0.12rem); }
-.send { display: block; width: 100%; margin: 1.6rem 0 1.4rem; padding: 0.95rem 1rem; cursor: pointer;
-        font: 700 1rem/1.2 "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-        color: #FFFFFF; background: #1A1A1A; border: 0; border-radius: 8px; }
-.send:hover { opacity: 0.85; }
+.send { display: block; width: 100%; margin: 1.6rem 0 1.4rem; padding: 1.1rem 1rem; cursor: pointer;
+        font: 400 0.72rem/1.2 "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+        letter-spacing: 0.24em; text-transform: uppercase; text-indent: 0.24em;
+        color: #F7F5F0; background: #262422; border: 0; border-radius: 0; }
+.send:hover { background: #3A3833; }
 .send:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .apply .fine { font-size: 0.8rem; line-height: 1.55; color: var(--muted); margin: 0 0 0.6rem; max-width: none; }
 .apply[data-path=student] .group-only, .apply[data-path=group] .student-only { display: none; }
@@ -399,12 +400,14 @@ footer.site p { margin: 0; max-width: none; }
 .home main > .close.stage { padding: var(--beat) 0; }
 .home .more { margin: 2rem auto 0; }
 
-/* The home page's button to the Access page, set like the app's PrimaryButtonStyle:
-   Inter Bold, white on near-black #1A1A1A, 8px corners, no gold edge (owner, 2026-09-30). */
-.cta { display: inline-block; margin: 2.2rem auto 0; padding: 0.95rem 2.2rem; text-decoration: none;
-       font: 700 1rem/1.2 "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-       color: #FFFFFF; background: #1A1A1A; border-radius: 8px; }
-.cta:hover { opacity: 0.85; }
+/* The home page's button to the Access page, in the site's own printed vocabulary
+   (owner, 2026-09-30, option B): spaced small capitals like the title block, on the
+   charcoal of the stage bands, square corners, no gold edge. */
+.cta { display: inline-block; margin: 2.2rem auto 0; padding: 1.05rem 2rem; text-decoration: none;
+       font: 400 0.72rem/1.2 "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+       letter-spacing: 0.24em; text-transform: uppercase; text-indent: 0.24em;
+       color: #F7F5F0; background: #262422; }
+.cta:hover { background: #3A3833; }
 .cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 .apply .needlink { font-size: 0.85rem; color: #8A3B12; border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 0.7rem; margin: 0.7rem 0 0; max-width: none; }
 .access .meta { margin-bottom: 2rem; }
