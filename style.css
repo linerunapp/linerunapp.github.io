@@ -303,3 +303,112 @@ footer.site p { margin: 0; max-width: none; }
   .blog h2 { font-size: 1.3rem; }
   .blog blockquote p { font-size: 1.15rem; }
 }
+
+/* ------------------------------------------------------ the Access page --
+   The legal pages' masthead and centred title, then two short fact columns
+   set like the Free / Pro bill, then the form on a paper card. */
+.access { padding-top: 4rem; }
+.access h1 { font-size: clamp(2.1rem, 5vw, 3.2rem); max-width: none; margin: 0 auto 1.6rem; }
+.access .meta { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+                text-indent: 0.3em; margin: 0 auto 3rem; padding-top: 1.3rem; max-width: none; position: relative; }
+.access .meta::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+                        width: 2.5rem; height: 1px; background: var(--gold); }
+.access h2 { font-size: 1.55rem; font-style: italic; margin: 0 0 1rem; max-width: none; }
+.access h2.small { text-align: center; margin: 4rem 0 1.2rem; }
+
+.facts { display: grid; grid-template-columns: 1fr 1px 1fr; max-width: 46rem; margin: 3.5rem auto 0;
+         text-align: left; }
+.facts::before { content: ""; grid-column: 2; grid-row: 1; background: var(--rule); }
+.facts .fact { padding: 0 2.2rem; }
+.facts .fact:first-child { grid-column: 1; grid-row: 1; }
+.facts .fact:last-child { grid-column: 3; grid-row: 1; }
+.facts h2 { text-align: center; }
+.facts ul { list-style: none; padding: 0; margin: 0; }
+.facts li { padding: 0.7rem 0 0.7rem 1.4rem; margin: 0; border-top: 1px solid var(--rule); position: relative; }
+.facts li::before { content: "\2713"; position: absolute; left: 0; color: var(--gold); }
+.facts .aside { font-size: 0.85rem; color: var(--muted); border-top: 1px solid var(--rule);
+                padding-top: 0.8rem; margin: 0; max-width: none; }
+
+.steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+.steps li { counter-increment: step; position: relative; padding: 0.7rem 0 0.7rem 2.2rem; margin: 0;
+            border-top: 1px solid var(--rule); }
+.steps li:last-child { border-bottom: 1px solid var(--rule); }
+.steps li::before { content: counter(step); position: absolute; left: 0.2rem; top: 0.55rem;
+                    font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 1.2rem;
+                    color: var(--gold); }
+
+.apply { max-width: 34rem; margin: 4.5rem auto 0; text-align: left; background: #FFFDF8;
+         border: 1px solid var(--rule); outline: 1px solid var(--rule); outline-offset: 6px;
+         padding: 2.4rem 2.2rem 2rem; }
+.apply fieldset { border: 0; padding: 0; margin: 0 0 1.8rem; }
+.apply legend, .apply .field > label { display: block; font-size: 0.66rem; letter-spacing: 0.24em;
+         text-transform: uppercase; color: var(--muted); margin: 0 0 0.5rem; padding: 0; }
+.apply legend { width: 100%; text-align: center; margin-bottom: 0.9rem; }
+.apply .opt { letter-spacing: 0.08em; text-transform: none; font-style: italic; color: var(--caption); }
+.choice { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--text); }
+.choice input { position: absolute; opacity: 0; pointer-events: none; }
+.choice label { text-align: center; padding: 0.75rem 0.5rem; cursor: pointer; font-size: 0.95rem; line-height: 1.3; }
+.choice label + input + label { border-left: 1px solid var(--text); }
+.choice input:checked + label { background: var(--text); color: #F7F5F0; }
+.choice input:focus-visible + label { outline: 2px solid var(--gold); outline-offset: -4px; }
+.apply .field { margin: 0 0 1.4rem; }
+.apply input[type=text], .apply input[type=email], .apply input[type=url], .apply textarea {
+  display: block; width: 100%; font: inherit; color: var(--text); background: transparent;
+  border: 0; border-bottom: 1px solid var(--muted); border-radius: 0; padding: 0.35rem 0; }
+.apply textarea { resize: vertical; border: 1px solid var(--rule); padding: 0.5rem 0.6rem; }
+.apply input::placeholder, .apply textarea::placeholder { color: #A9A6A0; }
+.apply input:focus, .apply textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 1px 0 var(--gold); }
+.apply .hint { font-size: 0.8rem; color: var(--caption); margin: 0.4rem 0 0; max-width: none; }
+.apply .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.checks { border-top: 1px solid var(--rule); padding-top: 1.2rem; margin-top: 2rem; }
+.check { display: flex; gap: 0.7rem; align-items: baseline; margin: 0 0 0.6rem; }
+.check input { accent-color: #3A3833; width: 1rem; height: 1rem; flex: none; transform: translateY(0.12rem); }
+.send { display: block; width: 100%; margin: 1.6rem 0 1.4rem; padding: 0.95rem 1rem; cursor: pointer;
+        font: 400 1.05rem/1 "Playfair Display", Georgia, serif; font-style: italic; letter-spacing: 0.02em;
+        color: #F7F5F0; background: #262422; border: 0; box-shadow: inset 0 -2px 0 var(--gold); }
+.send:hover { background: #3A3833; }
+.send:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.apply .fine { font-size: 0.8rem; line-height: 1.55; color: var(--muted); margin: 0 0 0.6rem; max-width: none; }
+.apply[data-path=student] .group-only, .apply[data-path=group] .student-only { display: none; }
+
+/* the home page's line to it */
+.home main > .access-beat { padding: var(--beat) 0; }
+.access-beat .kicker { font-size: 0.66rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+                       text-indent: 0.3em; margin: 0 auto 1.2rem; max-width: none; }
+
+@media (max-width: 47.5rem) {
+  .facts { grid-template-columns: 1fr; max-width: 31rem; }
+  .facts::before { display: none; }
+  .facts .fact, .facts .fact:first-child, .facts .fact:last-child { grid-column: 1; grid-row: auto; padding: 0; }
+  .facts .fact + .fact { margin-top: 2.6rem; }
+}
+@media (max-width: 34rem) {
+  .apply { padding: 1.8rem 1.2rem 1.4rem; outline-offset: 4px; }
+  .choice label { font-size: 0.88rem; }
+}
+.apply select { display: block; width: 100%; font: inherit; color: var(--text); background: transparent;
+  border: 0; border-bottom: 1px solid var(--muted); border-radius: 0; padding: 0.35rem 1.4rem 0.35rem 0;
+  -webkit-appearance: none; appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+  background-position: calc(100% - 0.7rem) 55%, calc(100% - 0.35rem) 55%; background-size: 0.35rem 0.35rem; background-repeat: no-repeat; }
+.apply select:focus { outline: none; border-color: var(--gold); box-shadow: 0 1px 0 var(--gold); }
+.apply:not([data-level=post]) .lv-post, .apply[data-level=post] .lv-other,
+.apply:not([data-level=high]):not([data-level=training]) .lv-soft,
+.apply[data-level=community] .lv-school,
+.apply:not([data-level=community]) .lv-community, .apply[data-level=community] .lv-notcommunity { display: none; }
+.home main > .close.stage { padding: var(--beat) 0; }
+.home .more { margin: 2rem auto 0; }
+
+/* the home page's button to the Access page, the form's own button */
+.cta { display: inline-block; margin: 2.2rem auto 0; padding: 0.95rem 2.2rem; text-decoration: none;
+       font: 400 1.05rem/1 "Playfair Display", Georgia, serif; font-style: italic; letter-spacing: 0.02em;
+       color: #F7F5F0; background: #262422; box-shadow: inset 0 -2px 0 var(--gold); }
+.cta:hover { background: #3A3833; }
+.cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.apply .needlink { font-size: 0.85rem; color: #8A3B12; border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 0.7rem; margin: 0.7rem 0 0; max-width: none; }
+.apply .formerr { font-size: 0.85rem; color: #8A3B12; margin: 1.2rem 0 0; max-width: none; }
+.send:disabled { opacity: 0.7; cursor: default; }
+.applied { max-width: 34rem; margin: 4.5rem auto 0; text-align: center; background: #FFFDF8;
+           border: 1px solid var(--rule); outline: 1px solid var(--rule); outline-offset: 6px; padding: 2.6rem 2.2rem 1.6rem; }
+.applied h2 { margin: 0 auto 1rem; }
+.applied:focus { outline-offset: 6px; }
