@@ -194,7 +194,7 @@ f.addEventListener('submit',function(e){
   if(p==='group'&&!val('f-size'))bad('f-size','Please add about how many actors.');
   if(p!=='group'&&lev==='community'&&!link)bad('f-link','Please add a link to the production.');
   if(p!=='group'&&!document.getElementById('f-age').checked)bad('f-age','Please confirm you’re 13 or older.');
-  if(first){first.closest('.field,.checks').scrollIntoView({behavior:'smooth',block:'center'});first.focus({preventScroll:true});return;}
+  if(first){err.textContent='Some fields above are incomplete.';err.hidden=false;first.closest('.field,.checks').scrollIntoView({behavior:'smooth',block:'center'});first.focus({preventScroll:true});return;}
   if(p!=='group'&&lev!=='community'&&!link&&personal.indexOf(email.split('@').pop().toLowerCase())>=0){need.hidden=false;document.getElementById('f-link').focus();return;}
   if(link&&!/^https?:\/\//i.test(link))link='https://'+link;
   var d=new URLSearchParams();

@@ -413,9 +413,10 @@ footer.site p { margin: 0; max-width: none; }
 .access .meta { margin-bottom: 2rem; }
 .access .intro { text-align: center; }
 .access .intro + .facts { margin-top: 5rem; }
-.apply .ferr { font-size: 0.85rem; color: #8A3B12; border-left: 2px solid var(--gold); padding: 0.2rem 0 0.2rem 0.7rem; margin: 0.6rem 0 0; max-width: none; }
-.apply .bad input[type=text], .apply .bad input[type=email], .apply .bad input[type=url], .apply .bad textarea { border-color: #8A3B12; }
-.apply .formerr { font-size: 0.85rem; color: #8A3B12; margin: 1.2rem 0 0; max-width: none; }
+/* Missing fields: a pale red band, so it reads at a glance (owner chose B, 2026-10-01). */
+.apply .ferr, .apply .formerr { font-size: 0.85rem; color: #9E2118; background: #F9E3DF; border-left: 3px solid #B3261E; padding: 0.45rem 0.7rem; margin: 0.6rem 0 0; max-width: none; }
+.apply .bad input[type=text], .apply .bad input[type=email], .apply .bad input[type=url], .apply .bad textarea { border-color: #B3261E; border-bottom-width: 2px; }
+.apply .formerr { margin: 1.2rem 0 0; }
 .send:disabled { opacity: 0.7; cursor: default; }
 .applied { max-width: 34rem; margin: 4.5rem auto 0; text-align: center; background: #FFFDF8;
            border: 1px solid var(--rule); outline: 1px solid var(--rule); outline-offset: 6px; padding: 2.6rem 2.2rem 1.6rem; }
