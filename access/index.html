@@ -176,21 +176,25 @@ var personal=['gmail.com','googlemail.com','icloud.com','me.com','mac.com','outl
 function path(){return f.querySelector('input[name=path]:checked').value;}
 function sync(){var p=path();f.setAttribute('data-path',p);f.setAttribute('data-level',p==='group'?'group':lv.value);}
 f.addEventListener('change',sync);sync();
+f.addEventListener('input',function(e){var b=e.target.closest('.bad');if(b){b.classList.remove('bad');var m=b.querySelector('.ferr');if(m)m.remove();}});
 function val(id){return document.getElementById(id).value.trim();}
 f.addEventListener('submit',function(e){
   e.preventDefault();
-  var p=path(), lev=p==='group'?'':lv.value, miss=[], err=document.getElementById('formerr'), need=document.getElementById('needlink');
+  var p=path(), lev=p==='group'?'':lv.value, first=null, err=document.getElementById('formerr'), need=document.getElementById('needlink');
   need.hidden=true; err.hidden=true;
+  [].forEach.call(f.querySelectorAll('.ferr'),function(x){x.parentNode.classList.remove('bad');x.remove();});
+  function bad(id,msg){var el=document.getElementById(id),box=el.closest('.field')||el.closest('.checks'),m=document.createElement('p');
+    m.className='ferr';m.textContent=msg;box.appendChild(m);box.classList.add('bad');if(!first)first=el;}
   var email=val('f-email'), link=val('f-link');
-  if(!val('f-name'))miss.push('your name');
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))miss.push('your email');
-  if(!val('f-org'))miss.push(p==='group'?'your school or theatre':(lev==='community'?'your theatre company':'your school or program'));
-  if(!val('f-work'))miss.push(p==='group'?'the production or class':'what you are working on');
-  if(!val('f-dates'))miss.push('the dates');
-  if(p==='group'&&!val('f-size'))miss.push('about how many actors');
-  if(p!=='group'&&lev==='community'&&!link)miss.push('a link to the production');
-  if(p!=='group'&&!document.getElementById('f-age').checked)miss.push('that you are 13 or older');
-  if(miss.length){err.textContent='Please add '+miss.join(', ')+'.';err.hidden=false;return;}
+  if(!val('f-name'))bad('f-name','Please add your name.');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))bad('f-email',email?'Please check your email address.':'Please add your email.');
+  if(!val('f-org'))bad('f-org',p==='group'?'Please add your school or theatre.':(lev==='community'?'Please add your theatre company.':'Please add your school or program.'));
+  if(!val('f-work'))bad('f-work',p==='group'?'Please add the production or class.':'Please add what you’re working on.');
+  if(!val('f-dates'))bad('f-dates','Please add the dates.');
+  if(p==='group'&&!val('f-size'))bad('f-size','Please add about how many actors.');
+  if(p!=='group'&&lev==='community'&&!link)bad('f-link','Please add a link to the production.');
+  if(p!=='group'&&!document.getElementById('f-age').checked)bad('f-age','Please confirm you’re 13 or older.');
+  if(first){first.closest('.field,.checks').scrollIntoView({behavior:'smooth',block:'center'});first.focus({preventScroll:true});return;}
   if(p!=='group'&&lev!=='community'&&!link&&personal.indexOf(email.split('@').pop().toLowerCase())>=0){need.hidden=false;document.getElementById('f-link').focus();return;}
   if(link&&!/^https?:\/\//i.test(link))link='https://'+link;
   var d=new URLSearchParams();
