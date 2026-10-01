@@ -185,6 +185,9 @@ f.addEventListener('submit',function(e){
   if(!val('f-name'))miss.push('your name');
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))miss.push('your email');
   if(!val('f-org'))miss.push(p==='group'?'your school or theatre':(lev==='community'?'your theatre company':'your school or program'));
+  if(!val('f-work'))miss.push(p==='group'?'the production or class':'what you are working on');
+  if(!val('f-dates'))miss.push('the dates');
+  if(p==='group'&&!val('f-size'))miss.push('about how many actors');
   if(p!=='group'&&lev==='community'&&!link)miss.push('a link to the production');
   if(p!=='group'&&!document.getElementById('f-age').checked)miss.push('that you are 13 or older');
   if(miss.length){err.textContent='Please add '+miss.join(', ')+'.';err.hidden=false;return;}
