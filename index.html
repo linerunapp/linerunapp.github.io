@@ -36,6 +36,7 @@
 <main>
 <section class="hero" aria-labelledby="h-hero">
 <div class="page">
+<p class="laurel"><svg class="lr" viewBox="0 0 238 238" width="238" height="238" aria-hidden="true" focusable="false"><defs><path id="lf" d="M0 0C7.5-8.5 21-7.6 30 0C21 7.6 7.5 8.5 0 0Z"/><g id="br"><path d="M122.0 203.9L98.4 201.5L91.4 199.4L84.7 196.8L78.1 193.5L71.9 189.7L66.0 185.4L60.5 180.7L55.4 175.4L50.8 169.8L46.7 163.7L43.2 157.4L40.1 150.7L37.7 143.9L35.9 136.8L34.7 129.6L34.1 122.3L34.1 115.0L34.7 107.8L36.0 100.6L37.9 93.6L40.4 86.7L43.4 80.1L47.0 73.7L51.2 67.7L55.8 62.1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><use href="#lf" transform="translate(91.7 199.5) rotate(161) scale(0.837)"/><use href="#lf" transform="translate(91.7 199.5) rotate(233) scale(0.670)"/><use href="#lf" transform="translate(75.8 192.2) rotate(173) scale(0.805)"/><use href="#lf" transform="translate(75.8 192.2) rotate(245) scale(0.644)"/><use href="#lf" transform="translate(61.8 181.8) rotate(184) scale(0.772)"/><use href="#lf" transform="translate(61.8 181.8) rotate(256) scale(0.618)"/><use href="#lf" transform="translate(50.1 168.8) rotate(196) scale(0.740)"/><use href="#lf" transform="translate(50.1 168.8) rotate(268) scale(0.592)"/><use href="#lf" transform="translate(41.4 153.7) rotate(208) scale(0.708)"/><use href="#lf" transform="translate(41.4 153.7) rotate(280) scale(0.566)"/><use href="#lf" transform="translate(35.9 137.1) rotate(220) scale(0.676)"/><use href="#lf" transform="translate(35.9 137.1) rotate(292) scale(0.540)"/><use href="#lf" transform="translate(34.0 119.7) rotate(232) scale(0.643)"/><use href="#lf" transform="translate(34.0 119.7) rotate(304) scale(0.515)"/><use href="#lf" transform="translate(35.7 102.3) rotate(243) scale(0.611)"/><use href="#lf" transform="translate(35.7 102.3) rotate(315) scale(0.489)"/><use href="#lf" transform="translate(40.8 85.6) rotate(255) scale(0.579)"/><use href="#lf" transform="translate(40.8 85.6) rotate(327) scale(0.463)"/><use href="#lf" transform="translate(49.3 70.3) rotate(267) scale(0.546)"/><use href="#lf" transform="translate(49.3 70.3) rotate(339) scale(0.437)"/><use href="#lf" transform="translate(55.8 62.1) rotate(312) scale(0.623)"/></g></defs><use href="#br"/><use href="#br" transform="translate(238 0) scale(-1 1)"/></svg><span class="lk">Selected by</span><span class="lw">App Store<br>Editors</span></p>
 <h1 id="h-hero">It listens.<br>So you can too.</h1>
 <p class="lead">Line Run gives you your cue and waits for your response, so you can stop reciting and start acting.</p>
 <p class="badge"><a href="https://apps.apple.com/app/id6785331408"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="144" height="48" decoding="async"></a></p>
@@ -52,6 +53,11 @@
 <script>(function(){var f=document.getElementById('filmfig'),
 v=document.getElementById('film'),b=document.getElementById('film-sound');
 if(!f||!v||!b)return;
+var ph=f.querySelector('.phone'),tw=innerWidth,
+tm=window.matchMedia&&window.matchMedia('(hover: none)');
+function fit(){var h=window.innerHeight||0;if(!ph||!h)return;
+ph.style.setProperty('--pw','max(9rem, min(19.5rem, calc(100vw - 3rem), '+Math.round((h-160)/2.107)+'px))')}
+fit();addEventListener('resize',function(){if(!(tm&&tm.matches)||innerWidth!==tw){tw=innerWidth;fit()}},{passive:true});
 var m=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)');
 if(m&&m.matches){v.autoplay=false;v.loop=false;v.controls=true;
 try{v.pause();v.currentTime=0}catch(e){}return;}
