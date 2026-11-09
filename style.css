@@ -63,7 +63,7 @@ h2 { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-w
      margin: 0 auto var(--gap); max-width: 18ch; overflow-wrap: break-word; text-wrap: balance; }
 h3 { font-weight: 700; font-size: 1rem; margin: 2.2rem 0 0.5rem; }
 .laurel { display: flex; align-items: center; justify-content: center; gap: 1.1rem; max-width: none;
-          margin: -5.2rem auto 2.25rem; text-align: center; }
+          margin: -4.3rem auto 1.35rem; text-align: center; }
 .laurel .lb { display: block; height: 8.6rem; width: auto; color: var(--gold); fill: currentColor; flex: none; }
 .laurel .lf { transform: scaleX(-1); }
 .laurel .lt { display: flex; flex-direction: column; align-items: center; }
